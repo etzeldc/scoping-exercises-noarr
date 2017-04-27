@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+		/*
+		Exercise 5
+
+		Bean counting
+
+		(From EJS, Ch. 3 Exercises, Pg 56.)
+
+		You can get the Nth character, or letter, from a string by writing "string".charAt(N), 
+		similar to how you get its length with "s".length. The returned value will be a string containing only
+		one character (for example, "b"). The first character has position zero, 
+		which causes the last one to be found at position string.length - 1. 
+		In other words, a two-character string has length 2, and its characters have positions 0 and 1.
+
+		Write a function countBs that takes a string as its only argument and returns a number 
+		that indicates how many uppercase “B” characters are in the string.
+
+		Next, write a function called countChar that behaves like countBs, except it takes a 
+		second argument that indicates the character that is to be counted (rather than counting only uppercase “B” characters). 
+		Rewrite countBs to make use of this new function.
+		 */
+
+
+		function countBs(string) { //declaring a function called countBs and giving it an argument of string
+			var sum = 0; //declaring a local var of sum to count ocurrences, set to zero because nothing has ocurred yet
+			for (var i = 0; i < string.length; i++) { //start a counter by declaring a var to count through string's length
+				if (string.charAt(i) === "B") { //if the current value in the counter is directly equal to "B", perform loop
+					sum = sum + 1; //add one to the count of that ocurrence
+				} //end if loop
+			} //end for loop
+			return sum; //returns the final value of the count of that ocurrence
+		} //ends function
+
+		function countChar(string, character) { //declaring a function called countChar and giving it 2 arguments, string and character
+			var count = 0; //declaring a local variable of count to count ocurrences, set to zero because nothing has happened yet
+			for (var j = 0; j < string.length; j++) { //start a counter by declaring a var to count through the string's length
+				if (string.charAt(j) === character) { //if the current value in the counter matches the value entered into the character argument, perform loop
+					count = count + 1; //add one to the count of that ocurrence
+				} //end if loop
+			} //end for loop
+			return count; //returns the final value of the count of that ocurrence
+		} //ends function
+
+		function countBs2(string) { //declaring a function called countBs2 and giving it an argument of string
+			return countChar(string, "B"); //returns the value of that string and the preset "B" character after it passes through the countChar function
+		} //ends function
+
+		
+
+		// Tests
+		console.log(countBs("Blah Blah Blah") === 3);
+		console.log(countBs("abcde") === 0);
+		console.log(countBs("ABCDE") === 1);
+		console.log(countBs("") === 0);
+
+		console.log(countChar("kayak", "k") === 2);
+		console.log(countChar("kayak", "K") === 0);
+		console.log(countChar("eaee", "e") === 3);
+		console.log(countChar("", "a") === 0);
+
+		//Additional test
+		console.log(countBs2("BBBB"));
+	</script>
+</body>
+
+</html>

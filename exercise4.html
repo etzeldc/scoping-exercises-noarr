@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+		/*
+			Exercise 4
+
+			There are many errors in the functions below! Each of the
+			"bad" functions (square, squareRoot, sum, and difference) need
+			to be changed so that they are pure functions (only local vars,
+			return a value at the end).
+
+			There are also some errors in the testing section that you will need
+			to fix.
+
+		*/
+
+		function square (a) { //adding a placeholder to enter a value to be squared
+			return a * a;
+		}
+
+		function squareRoot(a) { //adding a placeholder to enter a value to be square-rooted
+			return Math.sqrt(a);
+		}
+
+		function sum(a, b) { //adding two placeholders to enter two values to sumate
+			return a + b;
+		}
+
+		function difference(a, b) {
+			return a - b;
+		}
+
+		function distance(x1, y1, x2, y2) {
+			// no errors in this function - do not modify
+			return (
+				squareRoot(
+					sum(
+						square(difference(x2, x1)),
+						square(difference(y2, y1))
+					)
+				)
+			);
+		}
+
+		// Tests (with errors! You'll need to change these...)
+
+		// distance between (0, 0) and (4, 5)
+		var somethingElse = distance(0, 0, 4, 5); //setting a global var to the same namne as the function works in this instance, but muddies thigns elsewhere
+		console.log(somethingElse); //corresponding global variable change
+
+		// distance between (8, -3) and (4, 3)
+		var somethingElse = distance(8, -3, 4, 3); //using an identical name for the global var as the function gives the var to the leash, not the function, wont compute when ===
+		console.log(somethingElse); //corresponding global variable change
+	</script>
+</body>
+
+</html>

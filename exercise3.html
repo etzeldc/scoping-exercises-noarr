@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>`
+<body>
+	<script>
+		/*
+			Exercise 3
+
+			From problem 2, EJS Ch 3. page 56
+
+			Write the "stack frame" at each call of the following
+			recursive function. For example, if I call isEven(7),
+			the first two frames will be
+			num = 7
+			num = 5
+
+			Then, write out the return values at each level of the
+			stack as it unrolls.
+		*/
+
+		function isEven(num) {
+		//2) we begin our invoked function with (8)
+		//7) we begin our second invoked function with (6)
+		//12) we begin our third invoked function with (4)
+		//17) we begin our fourth invoked function with (2)
+		//22) we begin our fourth invoked function with (0)
+
+			if (num === 0) {
+			//3) the argument "8" is checked against 0, fails
+			//8) the second argument "6" is checked against 0, fails
+			//13) the third argument "4" is checked against 0, fails
+			//18) the fourth argument "2" is checked against 0, fails
+			//23) the fifth argument "0" is checked against 0, passes
+				return true;
+				//24) returns that the condition of var num being directly equal to 0 is true
+			} else if (num === 1) {
+			//4) the argument "8" is checked against 1, fails
+			//9) the second argument "6" is checked against 1, fails
+			//14) the third argument "4" is checked against 1, fails
+			//19) the fourth argument "2" is checked against 1, fails
+				return false;
+			} else{
+			//5) all previous conditions failed, so we're left with our else condition
+			//10) all previous conditions in second run failed, so we're left with our else condition
+			//15) all previous conditions in third run failed, so we're left with our else condition
+			//20) all previous conditions in fourth run failed, so we're left with our else condition
+				return isEven(num - 2);
+				//6) we invoke our function a second time while still within our first function, but with argument of 2 less
+				//11) we invoke our function a third time while still within our second function, but with argument of 2 less
+				//16) we invoke our function a fourth time while still within our third function, but with argument of 2 less
+				//21) we invoke our function a fifth time while still within our fourth function, but with argument of 2 less
+			}
+		}
+		//25) ends function
+
+		isEven(8);
+		//1) we invoke our function with an argument of "8"
+	</script>
+</body>
+</html>
